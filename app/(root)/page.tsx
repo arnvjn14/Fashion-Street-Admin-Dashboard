@@ -17,15 +17,17 @@ export default function Home() {
     }
   }, [isOpen, onOpen]);
 
-  return (
-    <div className="p-4">
-      {/* <Button size="default">Click me</Button> */}
-      {/* <UserButton afterSignOutUrl="/" />
-       */}
-      {/* <Modal title="Test" description="Test Test" isOpen onClose={() => {}}>
-        Children
-      </Modal> */}
-      Root Page
-    </div>
-  );
+  // return (
+  //   <div className="p-4">
+  //     {/* <Button size="default">Click me</Button> */}
+  //     {/* <UserButton afterSignOutUrl="/" />
+  //      */}
+  //     {/* <Modal title="Test" description="Test Test" isOpen onClose={() => {}}>
+  //       Children
+  //     </Modal> */}
+  //     Root Page
+  //   </div>
+  // );
+
+  return null;
 }
