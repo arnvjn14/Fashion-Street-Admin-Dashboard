@@ -135,6 +135,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         ))}
       </div>
       <CldUploadWidget onUpload={onUpload} uploadPreset="vmepetdw">
+        {/* uploadPreset hi tumhe tumhare cloudinary account se jodega */}
         {({ open }) => {
           const onClick = () => {
             open();
