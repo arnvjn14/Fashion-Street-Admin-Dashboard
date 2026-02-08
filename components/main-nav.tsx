@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -11,6 +12,7 @@ export function MainNav({
 }: React.HTMLAttributes<HTMLElement>) {
   const pathname = usePathname();
   const params = useParams();
+  const [loading, setLoading] = useState(false);
 
   const routes = [
     {
@@ -55,11 +57,24 @@ export function MainNav({
     },
   ];
 
+  useEffect(() => {
+    setLoading(false);
+  }, [pathname]);
+
+  const handleClick = () => {
+    setLoading(true);
+  };
+
   return (
     <nav
       className={cn("flex items-center space-x-4 lg:space-x-6", className)}
       {...props}
     >
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 z-50">
+          <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+      )}
       {routes.map((route) => (
         <Link
           key={route.href}
@@ -70,6 +85,7 @@ export function MainNav({
               ? "text-black dark:text-white drop-shadow-xl"
               : "text-muted-foreground"
           )}
+          onClick={handleClick}
         >
           {route.label}
         </Link>
